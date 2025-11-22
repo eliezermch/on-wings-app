@@ -51,6 +51,28 @@ export function RegisterForm() {
           </CardHeader>
           <CardContent className={styles.content}>
             <div className={styles.fieldGroup}>
+              <Label htmlFor="firstName">First Name</Label>
+              <Input
+                id="firstName"
+                name="firstName"
+                type="text"
+                placeholder="First Name"
+                defaultValue={formState.data?.firstName ?? ''}
+              />
+              <FormError error={formState.zodErrors?.firstName} />
+            </div>
+            <div className={styles.fieldGroup}>
+              <Label htmlFor="lastName">Last Name</Label>
+              <Input
+                id="lastName"
+                name="lastName"
+                type="text"
+                placeholder="Last Name"
+                defaultValue={formState.data?.lastName ?? ''}
+              />
+              <FormError error={formState.zodErrors?.lastName} />
+            </div>
+            <div className={styles.fieldGroup}>
               <Label htmlFor="username">Username</Label>
               <Input
                 id="username"

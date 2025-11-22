@@ -9,6 +9,8 @@ export const SigninFormSchema = z.object({
 });
 
 export const SignupFormSchema = z.object({
+  firstName: z.string().min(2, 'First name must be at least 2 characters'),
+  lastName: z.string().min(2, 'Last name must be at least 2 characters'),
   username: z
     .string()
     .min(3, 'Username must be at least 3 characters')
@@ -31,6 +33,8 @@ export type FormState = {
     username?: string;
     email?: string;
     password?: string;
+    firstName?: string;
+    lastName?: string;
   };
   apiErrors?: {
     message: string;
@@ -41,5 +45,7 @@ export type FormState = {
     username?: string[];
     email?: string[];
     password?: string[];
+    firstName?: string[];
+    lastName?: string[];
   } | null;
 };

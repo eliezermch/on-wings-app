@@ -20,6 +20,8 @@ export async function registerUserAction(prevState: FormState, formData: FormDat
     username: formData.get('username') as string,
     email: formData.get('email') as string,
     password: formData.get('password') as string,
+    firstName: formData.get('firstName') as string,
+    lastName: formData.get('lastName') as string,
   };
 
   const validatedFields = SignupFormSchema.safeParse(fields);
@@ -41,18 +43,6 @@ export async function registerUserAction(prevState: FormState, formData: FormDat
   try {
     // 1. Register the user
     await api.post('register/', fields);
-
-    // 2. Auto-login to get the token
-    const loginResponse = await api.post('login/', {
-      username: fields.username,
-      password: fields.password,
-    });
-
-    const { token } = loginResponse.data;
-
-    // 3. Set the cookie
-    const cookieStore = await cookies();
-    cookieStore.set('jwt', token, cookieConfig);
 
   } catch (error: any) {
     let errorMessage = 'Registration failed. Please try again.';
@@ -86,8 +76,8 @@ export async function registerUserAction(prevState: FormState, formData: FormDat
     };
   }
 
-  // 4. Redirect to home
-  redirect('/');
+  // 4. Redirect to login
+  redirect('/login');
 }
 
 export async function loginUserAction(prevState: FormState, formData: FormData): Promise<FormState> {
