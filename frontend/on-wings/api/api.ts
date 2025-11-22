@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { cookies } from 'next/headers';
 
 const API_URL = 'http://localhost:8000/api/auth/';
 
@@ -10,8 +11,10 @@ const api = axios.create({
 });
 
 api.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem('token');
+  async (config) => {
+    const cookieStore = await cookies();
+    const token = cookieStore.get('jwt')?.value;
+    
     if (token && !config.url?.includes('login/') && !config.url?.includes('register/')) {
       config.headers.Authorization = `Token ${token}`;
     }

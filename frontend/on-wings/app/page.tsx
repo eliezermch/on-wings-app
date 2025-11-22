@@ -1,40 +1,19 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import api from '@/api/api';
+import { actions } from '@/actions';
 
-export default function Home() {
-  const router = useRouter();
-  const [user, setUser] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-    setIsLoading(false);
-  }, []);
-
-  const handleLogout = async () => {
-    try {
-      await api.post('logout/');
-    } catch (error) {
-      console.error('Logout failed', error);
-    } finally {
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      setUser(null);
-      router.push('/login');
-    }
-  };
-
-  if (isLoading) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+async function getUser() {
+  try {
+    const response = await api.get('me/');
+    return response.data;
+  } catch (error) {
+    return null;
   }
+}
+
+export default async function Home() {
+  const user = await getUser();
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-8">
@@ -48,9 +27,11 @@ export default function Home() {
             <p className="text-xl text-gray-700">
               Hello, <span className="font-semibold">{user.username}</span>!
             </p>
-            <Button onClick={handleLogout} variant="outline" className="w-auto mx-auto">
-              Sign out
-            </Button>
+            <form action={actions.auth.logoutUserAction}>
+                <Button type="submit" variant="outline" className="w-auto mx-auto">
+                Sign out
+                </Button>
+            </form>
           </div>
         ) : (
           <div className="space-y-6">
