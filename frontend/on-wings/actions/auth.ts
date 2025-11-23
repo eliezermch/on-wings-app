@@ -158,5 +158,14 @@ export async function logoutUserAction() {
   }
   
   cookieStore.delete('jwt');
-  redirect('/login');
+  redirect('/signin');
+}
+
+export async function getUser() {
+  try {
+    const response = await api.get('me/');
+    return response.data;
+  } catch (error) {
+    return null;
+  }
 }
