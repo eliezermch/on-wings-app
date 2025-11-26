@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import api from '@/api/api';
 import { actions } from '@/actions';
+import Image from 'next/image';
 
 async function getUser() {
   try {
@@ -17,37 +18,24 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-8">
-      <main className="max-w-4xl w-full text-center space-y-8">
-        <h1 className="text-4xl font-bold text-gray-900">
+      <main className="flex flex-col items-center justify-center max-w-4xl w-full text-center space-y-8">
+        <h1 className="text-4xl font-bold text-gray-900 mb-0">
           Welcome to On Wings
         </h1>
-        
-        {user ? (
-          <div className="bg-white p-8 rounded-xl shadow-lg space-y-6">
-            <p className="text-xl text-gray-700">
-              Hello, <span className="font-semibold">{user.username}</span>!
-            </p>
-            <form action={actions.auth.logoutUserAction}>
-                <Button type="submit" variant="outline" className="w-auto mx-auto">
-                Sign out
-                </Button>
-            </form>
-          </div>
-        ) : (
+        <Image src="/on-wings-logo-text_transparent_trimmed.png" alt="On Wings Logo" className="w-[400px] h-[400px] object-contain mb-0" width={400} height={400} />
           <div className="space-y-6">
-            <p className="text-xl text-gray-600">
+            <p className="text-xl font-medium text-gray-600">
               Please sign in or create an account to continue.
             </p>
             <div className="flex justify-center gap-4">
-              <Link href="/login">
-                <Button className="w-32">Sign In</Button>
+              <Link href="/signin">
+                <Button className="w-32 font-semibold">Sign In</Button>
               </Link>
               <Link href="/register">
-                <Button variant="outline" className="w-32">Register</Button>
+                <Button variant="secondary" className="w-32 font-semibold">Register</Button>
               </Link>
             </div>
           </div>
-        )}
       </main>
     </div>
   );

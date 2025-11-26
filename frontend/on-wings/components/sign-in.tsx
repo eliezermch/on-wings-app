@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { actions } from '@/actions';
 import { FormState } from '@/validations/auth';
+import Image from 'next/image';
 
 const INITIAL_STATE: FormState = {
   success: false,
@@ -23,12 +24,13 @@ export default function SignIn() {
 
   return (
     <div className="flex items-center justify-center bg-card rounded-xl shadow-lg py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-foreground">
+      <div className="max-w-md w-full flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center">
+          <Image src="/on-wings-high-quality_trimmed.png" alt="On Wings Logo" className="w-[128px] h-[128px] object-contain mb-[-32px]" width={128} height={128} />
+          <h2 className="mt-0 text-center text-3xl font-extrabold text-foreground">
             Sign in to your account
           </h2>
-          <p className="mt-2 text-center text-sm text-muted-foreground">
+          <p className="mt-2 text-center text-md text-muted-foreground">
             Or{' '}
             <Link href="/register" className="font-medium text-primary hover:text-primary/80">
               create a new account

@@ -11,16 +11,17 @@ import { Label } from './ui/label';
 import { actions } from '@/actions';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
+import Image from 'next/image';
 
 const styles = {
   container: 'w-full max-w-md',
   header: 'space-y-1',
-  title: 'text-3xl font-bold text-primary',
+  title: 'text-3xl font-bold text-primary flex justify-between',
   content: 'space-y-4',
   fieldGroup: 'space-y-2',
   footer: 'flex flex-col',
   button: 'w-full',
-  prompt: 'mt-4 text-center text-sm',
+  prompt: 'mt-4 text-center text-md',
   link: 'ml-2 text-primary',
 };
 
@@ -46,8 +47,8 @@ export function RegisterForm() {
       <form action={formAction}>
         <Card>
           <CardHeader className={styles.header}>
-            <CardTitle className={styles.title}>Sign Up</CardTitle>
-            <CardDescription>Enter your details to create a new account</CardDescription>
+            <CardTitle className={styles.title}>Sign Up <Image src="/on-wings-high-quality_trimmed.png" alt="On Wings Logo" className="w-[48px] h-[48px] object-contain mb-[-32px]" width={48} height={48} /></CardTitle>
+            <CardDescription className='text-md'>Enter your details to create a new account</CardDescription>
           </CardHeader>
           <CardContent className={styles.content}>
             <div className={styles.fieldGroup}>
