@@ -6,6 +6,7 @@ import { redirect } from 'next/navigation';
 import api from '@/api/api';
 import z from 'zod';
 import { AxiosError } from 'axios';
+import { getRandomHexColor } from '@/utils/functions';
 
 const cookieConfig = {
   maxAge: 60 * 60 * 24 * 7, // 1 week,
@@ -35,14 +36,22 @@ export async function registerUserAction(prevState: FormState, formData: FormDat
       apiErrors: null,
       zodErrors: flattenedErrors.fieldErrors,
       data: {
-        ...fields,
+        avatar: `https://images.placeholders.dev/?text=${fields.firstName.charAt(0).toLocaleUpperCase()}&width=50&height=50&bgColor=${getRandomHexColor()}`,
+        ...fields
       },
     };
   }
 
   try {
     // 1. Register the user
-    await api.post('register/', fields);
+    await api.post('register/', {
+      username: fields.username,
+      email: fields.email,
+      password: fields.password,
+      first_name: fields.firstName,
+      last_name: fields.lastName,
+      avatar: `https://images.placeholders.dev/?text=${fields.firstName.charAt(0).toLocaleUpperCase()}&width=50&height=50&bgColor=${getRandomHexColor()}`
+    });
 
   } catch (error: any) {
     let errorMessage = 'Registration failed. Please try again.';
@@ -77,7 +86,7 @@ export async function registerUserAction(prevState: FormState, formData: FormDat
   }
 
   // 4. Redirect to login
-  redirect('/login');
+  redirect('/signin');
 }
 
 export async function loginUserAction(prevState: FormState, formData: FormData): Promise<FormState> {
@@ -164,6 +173,7 @@ export async function logoutUserAction() {
 export async function getUser() {
   try {
     const response = await api.get('me/');
+    console.log(response.data);
     return response.data;
   } catch (error) {
     return null;

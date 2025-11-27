@@ -35,6 +35,7 @@ export type FormState = {
     password?: string;
     firstName?: string;
     lastName?: string;
+    avatar?: string;
   };
   apiErrors?: {
     message: string;

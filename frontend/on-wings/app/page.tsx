@@ -1,28 +1,18 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import api from '@/api/api';
-import { actions } from '@/actions';
-import Image from 'next/image';
-
-async function getUser() {
-  try {
-    const response = await api.get('me/');
-    return response.data;
-  } catch (error) {
-    return null;
-  }
-}
+import { DailyVerseCard } from '@/components/daily-verse-card';
+import { getUser } from '@/actions/auth';
 
 export default async function Home() {
   const user = await getUser();
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-8">
-      <main className="flex flex-col items-center justify-center max-w-4xl w-full text-center space-y-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-0">
-          Welcome to On Wings
-        </h1>
-        <Image src="/on-wings-logo-text_transparent_trimmed.png" alt="On Wings Logo" className="w-[400px] h-[400px] object-contain mb-0" width={400} height={400} />
+    <main className="min-h-screen bg-background flex flex-col items-center justify-center p-8">
+      <h1 className="text-4xl font-bold mb-8">Good Day, {user?.first_name} Here is your daily verse</h1>
+      <div className="flex flex-col max-w-4xl w-full space-y-8">
+        {user ? (
+          <DailyVerseCard />
+        ) : (
           <div className="space-y-6">
             <p className="text-xl font-medium text-gray-600">
               Please sign in or create an account to continue.
@@ -36,7 +26,8 @@ export default async function Home() {
               </Link>
             </div>
           </div>
-      </main>
-    </div>
+        )}
+      </div>
+    </main>
   );
 }
