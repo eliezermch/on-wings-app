@@ -28,12 +28,12 @@ export default function SignIn() {
         <div className="flex flex-col items-center justify-center">
           <Image src="/on-wings-high-quality_trimmed.png" alt="On Wings Logo" className="w-[128px] h-[128px] object-contain mb-[-32px]" width={128} height={128} />
           <h2 className="mt-0 text-center text-3xl font-extrabold text-foreground">
-            Sign in to your account
+            Iniciar Sesión
           </h2>
           <p className="mt-2 text-center text-md text-muted-foreground">
             Or{' '}
             <Link href="/register" className="font-medium text-primary hover:text-primary/80">
-              create a new account
+             Crear una cuenta
             </Link>
           </p>
         </div>
@@ -44,7 +44,7 @@ export default function SignIn() {
               name="username"
               type="text"
               required
-              placeholder="Username"
+              placeholder="Nombre de Usuario"
               defaultValue={formState.data?.username}
             />
             {formState.zodErrors?.username && (
@@ -56,7 +56,7 @@ export default function SignIn() {
               name="password"
               type="password"
               required
-              placeholder="Password"
+              placeholder="Contraseña"
               defaultValue={formState.data?.password}
             />
              {formState.zodErrors?.password && (
@@ -71,7 +71,7 @@ export default function SignIn() {
           )}
 
           <Button type="submit" className="w-full text-background">
-            Sign in
+            Iniciar Sesión
           </Button>
         </form>
       </div>

@@ -40,52 +40,50 @@ const INITIAL_STATE: FormState = {
 export function RegisterForm() {
   const [formState, formAction] = useActionState(actions.auth.registerUserAction, INITIAL_STATE);
 
-  // console.log(formState);
-
   return (
     <div className={styles.container}>
       <form action={formAction}>
         <Card>
           <CardHeader className={styles.header}>
-            <CardTitle className={styles.title}>Sign Up <Image src="/on-wings-high-quality_trimmed.png" alt="On Wings Logo" className="w-[48px] h-[48px] object-contain mb-[-32px]" width={48} height={48} /></CardTitle>
-            <CardDescription className='text-md'>Enter your details to create a new account</CardDescription>
+            <CardTitle className={styles.title}>Registrarse <Image src="/on-wings-high-quality_trimmed.png" alt="On Wings Logo" className="w-[48px] h-[48px] object-contain mb-[-32px]" width={48} height={48} /></CardTitle>
+            <CardDescription className='text-md'>Ingresa tus datos para crear una nueva cuenta</CardDescription>
           </CardHeader>
           <CardContent className={styles.content}>
             <div className={styles.fieldGroup}>
-              <Label htmlFor="firstName">First Name</Label>
+              <Label htmlFor="firstName">Nombre</Label>
               <Input
                 id="firstName"
                 name="firstName"
                 type="text"
-                placeholder="First Name"
+                placeholder="Nombre"
                 defaultValue={formState.data?.firstName ?? ''}
               />
               <FormError error={formState.zodErrors?.firstName} />
             </div>
             <div className={styles.fieldGroup}>
-              <Label htmlFor="lastName">Last Name</Label>
+              <Label htmlFor="lastName">Apellido</Label>
               <Input
                 id="lastName"
                 name="lastName"
                 type="text"
-                placeholder="Last Name"
+                placeholder="Apellido"
                 defaultValue={formState.data?.lastName ?? ''}
               />
               <FormError error={formState.zodErrors?.lastName} />
             </div>
             <div className={styles.fieldGroup}>
-              <Label htmlFor="username">Username</Label>
+              <Label htmlFor="username">Nombre de Usuario</Label>
               <Input
                 id="username"
                 name="username"
                 type="text"
-                placeholder="username"
+                placeholder="Nombre de Usuario"
                 defaultValue={formState.data?.username ?? ''}
               />
               <FormError error={formState.zodErrors?.username} />
             </div>
             <div className={styles.fieldGroup}>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">Correo Electrónico</Label>
               <Input
                 id="email"
                 name="email"
@@ -96,28 +94,28 @@ export function RegisterForm() {
               <FormError error={formState.zodErrors?.email} />
             </div>
             <div className={styles.fieldGroup}>
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">Contraseña</Label>
               <Input
                 id="password"
                 name="password"
                 type="password"
-                placeholder="password"
+                placeholder="Contraseña"
                 defaultValue={formState.data?.password ?? ''}
               />
               <FormError error={formState.zodErrors?.password} />
             </div>
           </CardContent>
           <CardFooter className={styles.footer}>
-            <Button className={styles.button}>Sign Up</Button>
+            <Button className={styles.button}>Registrarse</Button>
             {formState.apiErrors && (
               <p className="text-pink-500 text-xs italic mt-1 py-2">{formState.apiErrors.message}</p>
             )}
           </CardFooter>
         </Card>
         <div className={styles.prompt}>
-          Have an account?
+          ¿Tienes una cuenta?
           <Link className={styles.link} href="signin">
-            Sign In
+            Iniciar Sesión
           </Link>
         </div>
       </form>

@@ -16,7 +16,7 @@ interface DailyVerse {
 export const DailyVerseCard = () => {
   const [verse, setVerse] = useState<DailyVerse | null>(null);
   const [loading, setLoading] = useState(true);
-  const [language, setLanguage] = useState<'en' | 'es'>('en');
+  const [language, setLanguage] = useState<'en' | 'es'>('es');
 
   useEffect(() => {
     const fetchVerse = async () => {
