@@ -22,6 +22,7 @@ urlpatterns = [
     path('api/auth/', include('users.urls')),
     path('api/verses/', include('verses.urls')),
     path('api/stories/', include('stories.urls')),
+    path('api/quizzes/', include('quizzes.urls')),
 ]
 
 from django.conf import settings
