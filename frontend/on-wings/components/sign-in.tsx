@@ -65,7 +65,7 @@ export default function SignIn() {
           </div>
 
           {formState.apiErrors && (
-            <div className="text-red-600 text-sm text-center bg-red-50 p-2 rounded">
+            <div className="text-red-600 text-md text-center bg-transparent p-2 rounded">
               {formState.apiErrors.message}
             </div>
           )}

@@ -1,35 +1,14 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { DailyVerseCard } from '@/components/daily-verse-card';
-import { getUser } from '@/actions/auth';
+import { actions} from '@/actions/index'
 import { StoryCard } from '@/components/story-card';
-
-const BIBLE_STORIES = [
-  {
-    id: 1,
-    title: "David & Goliath",
-    snippet: "A young shepherd faces a giant warrior with nothing but a sling and his faith.",
-    category: "Courage",
-    readTime: "3 min"
-  },
-  {
-    id: 2,
-    title: "The Walls of Jericho",
-    snippet: "Joshua follows a strange command to march around a city for seven days.",
-    category: "Faith",
-    readTime: "5 min"
-  },
-  {
-    id: 3,
-    title: "Daniel in the Lions' Den",
-    snippet: "Despite a royal decree, Daniel continues to pray and faces the consequences.",
-    category: "Protection",
-    readTime: "4 min"
-  }
-];
+import { Story } from '@/types/story';
 
 export default async function Home() {
-  const user = await getUser();
+  const user = await actions.auth.getUser();
+
+  const stories = await actions.stories.getStories();
 
   return (
     <main className="min-h-screen bg-background flex flex-col items-center p-8">
@@ -60,7 +39,7 @@ export default async function Home() {
           <button className="text-sm font-bold hover:underline" style={{ color: "#D4AF37" }}>View All</button>
         </div>
         <div className="flex flex-col max-w-4xl w-full space-y-8">
-          {BIBLE_STORIES.map((story) => (
+          {stories.map((story: Story) => (
             <StoryCard key={story.id} story={story} />
           ))}
         </div>
