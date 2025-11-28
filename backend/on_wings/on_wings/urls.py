@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('users.urls')),
     path('api/verses/', include('verses.urls')),
+    path('api/stories/', include('stories.urls')),
 ]
 
 from django.conf import settings
