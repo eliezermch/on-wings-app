@@ -19,7 +19,7 @@ export const NavBar = async () => {
             <Link href="/stories/liked" className="text-md font-medium hover:text-primary transition-colors">
               Liked Stories
             </Link>
-            <Link href="/stories/liked" className="text-md font-medium hover:text-primary transition-colors">
+            <Link href="/quiz" className="text-md font-medium hover:text-primary transition-colors">
               Quiz
             </Link>
           </div>
