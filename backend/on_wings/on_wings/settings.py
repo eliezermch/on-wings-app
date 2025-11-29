@@ -100,6 +100,18 @@ print(f"DEBUG: Using database_url: {bool(database_url)}")
 
 if database_url:
     DATABASES['default'] = dj_database_url.parse(database_url)
+    
+    # Fix for Supabase/psycopg2 "invalid connection option" error
+    # The 'options' query param (e.g. project=supa-...) causes issues with psycopg2 parsing
+    if 'OPTIONS' in DATABASES['default'] and 'options' in DATABASES['default']['OPTIONS']:
+        print(f"DEBUG: Removing problematic options: {DATABASES['default']['OPTIONS']['options']}")
+        del DATABASES['default']['OPTIONS']['options']
+        
+    # Ensure SSL is required (Supabase requires it)
+    if 'OPTIONS' not in DATABASES['default']:
+        DATABASES['default']['OPTIONS'] = {}
+    DATABASES['default']['OPTIONS']['sslmode'] = 'require'
+
 else:
     print("DEBUG: Falling back to SQLite")
     DATABASES['default'] = dj_database_url.config(default=f'sqlite:///{BASE_DIR / "db.sqlite3"}')
