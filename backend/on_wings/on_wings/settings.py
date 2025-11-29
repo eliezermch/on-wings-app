@@ -93,9 +93,14 @@ DATABASES = {
 # Check for DATABASE_URL or POSTGRES_URL (Vercel default)
 database_url = os.environ.get('DATABASE_URL') or os.environ.get('POSTGRES_URL')
 
+print(f"DEBUG: DATABASE_URL present: {bool(os.environ.get('DATABASE_URL'))}")
+print(f"DEBUG: POSTGRES_URL present: {bool(os.environ.get('POSTGRES_URL'))}")
+print(f"DEBUG: Using database_url: {bool(database_url)}")
+
 if database_url:
     DATABASES['default'] = dj_database_url.parse(database_url)
 else:
+    print("DEBUG: Falling back to SQLite")
     DATABASES['default'] = dj_database_url.config(default=f'sqlite:///{BASE_DIR / "db.sqlite3"}')
 
 
