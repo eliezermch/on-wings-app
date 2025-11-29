@@ -8,7 +8,12 @@ import { Story } from '@/types/story';
 export default async function Home() {
   const user = await actions.auth.getUser();
 
-  const stories = await actions.stories.getStories();
+  let stories: Story[] = [];
+  try {
+    stories = await actions.stories.getStories();
+  } catch (error) {
+    console.error('Failed to fetch stories:', error);
+  }
 
   return (
     <main className="min-h-screen bg-background flex flex-col items-center p-8">
