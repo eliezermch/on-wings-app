@@ -5,12 +5,22 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { actions } from '@/actions';
 import { getUserProgress } from '@/actions/quiz';
 import { Trophy, Scroll, BookOpen, LogOut, User as UserIcon } from 'lucide-react';
+import { Story } from '@/types/story';
 import { LikedStoryCard } from '@/components/liked-story-card';
 import { ProfileStatsCard } from '@/components/profile-stats-card';
 
 export default async function MePage() {
   const user = await actions.auth.getUser();
-  const likedStories = await actions.stories.getLikedStories();
+  let likedStories: Story[] = [];
+  
+  try {
+    if (user) {
+      likedStories = await actions.stories.getLikedStories();
+    }
+  } catch (error) {
+    console.error('Failed to fetch liked stories:', error);
+    // Default to empty array on error
+  }
   
   // If no user, show login prompt (or could redirect)
   if (!user) {
