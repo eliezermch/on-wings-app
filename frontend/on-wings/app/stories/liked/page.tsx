@@ -5,6 +5,7 @@ import { getLikedStories } from '@/actions/stories'
 import { Story } from '@/types/story'
 import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { LikedStoryCard } from '@/components/liked-story-card'
 
 export default function LikedStoriesPage() {
   const [stories, setStories] = useState<Story[]>([])
@@ -43,17 +44,7 @@ export default function LikedStoriesPage() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {stories.map((story) => (
-            <Link key={story.id} href={`/stories/${story.id}`}>
-              <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
-                <CardHeader>
-                  <CardTitle className="text-primary text-lg line-clamp-2">{story.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">{story.reference}</p>
-                  <p className="line-clamp-3 text-sm">{story.content}</p>
-                </CardContent>
-              </Card>
-            </Link>
+            <LikedStoryCard key={story.id} story={story} />
           ))}
         </div>
       )}
