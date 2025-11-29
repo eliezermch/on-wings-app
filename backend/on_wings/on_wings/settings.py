@@ -90,11 +90,12 @@ DATABASES = {
     }
 }
 
-# Check for DATABASE_URL or POSTGRES_URL (Vercel default)
-database_url = os.environ.get('DATABASE_URL') or os.environ.get('POSTGRES_URL')
+# Check for DATABASE_URL, POSTGRES_URL, or DATABASE_POSTGRES_URL (Supabase)
+database_url = os.environ.get('DATABASE_URL') or os.environ.get('POSTGRES_URL') or os.environ.get('DATABASE_POSTGRES_URL')
 
 print(f"DEBUG: DATABASE_URL present: {bool(os.environ.get('DATABASE_URL'))}")
 print(f"DEBUG: POSTGRES_URL present: {bool(os.environ.get('POSTGRES_URL'))}")
+print(f"DEBUG: DATABASE_POSTGRES_URL present: {bool(os.environ.get('DATABASE_POSTGRES_URL'))}")
 print(f"DEBUG: Using database_url: {bool(database_url)}")
 
 if database_url:
