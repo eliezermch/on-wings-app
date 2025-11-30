@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-cfy!fw^n8rz5tw=c23b_0lc-$qnleh+uvzoaprat+c-ar^p28m'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app', 'localhost', '127.0.0.1', '[::1]']
+ALLOWED_HOSTS = ['.vercel.app', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -75,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'on_wings.wsgi.app'
+WSGI_APPLICATION = 'on_wings.wsgi.application'
 
 
 # Database
@@ -87,34 +88,16 @@ import os
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DATABASE_POSTGRES_DATABASE'),
+        'USER': config('DATABASE_POSTGRES_USER'),
+        'PASSWORD': config('DATABASE_POSTGRES_PASSWORD'),
+        'HOST': config('DATABASE_POSTGRES_HOST'),
+        'PORT': config('DATABASE_POSTGRES_PORT'),
     }
 }
 
-# Check for DATABASE_URL, POSTGRES_URL, or DATABASE_POSTGRES_URL (Supabase)
-database_url = os.environ.get('DATABASE_URL') or os.environ.get('POSTGRES_URL') or os.environ.get('DATABASE_POSTGRES_URL')
-
-print(f"DEBUG: DATABASE_URL present: {bool(os.environ.get('DATABASE_URL'))}")
-print(f"DEBUG: POSTGRES_URL present: {bool(os.environ.get('POSTGRES_URL'))}")
-print(f"DEBUG: DATABASE_POSTGRES_URL present: {bool(os.environ.get('DATABASE_POSTGRES_URL'))}")
-print(f"DEBUG: Using database_url: {bool(database_url)}")
-
-if database_url:
-    # Fix for Supabase "invalid connection option" error
-    # Strip the query parameters (like ?options=...) from the URL string before parsing
-    if '?' in database_url:
-        print(f"DEBUG: Stripping query params from URL: {database_url.split('?')[1]}")
-        database_url = database_url.split('?')[0]
-
-    DATABASES['default'] = dj_database_url.parse(database_url)
+# DATABASES['default'] = dj_database_url.parse(os.environ.get('DATABASE_URL'))
     
-    # Ensure SSL is required (Supabase requires it)
-    if 'OPTIONS' not in DATABASES['default']:
-        DATABASES['default']['OPTIONS'] = {}
-    DATABASES['default']['OPTIONS']['sslmode'] = 'require'
-
-else:
-    print("DEBUG: Falling back to SQLite")
-    DATABASES['default'] = dj_database_url.config(default=f'sqlite:///{BASE_DIR / "db.sqlite3"}')
 
 
 # Password validation
