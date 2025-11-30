@@ -10,4 +10,4 @@ python manage.py makemigrations
 python manage.py migrate 
 
 echo "Collect Static..."
-python manage.py collectstatic
+python manage.py collectstatic --noinput
