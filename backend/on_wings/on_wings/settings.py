@@ -89,9 +89,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('DATABASE_POSTGRES_DATABASE'),
-        'USER': config('DATABASE_USER'),
+        'USER': config('DATABASE_POSTGRES_USER'),
         'PASSWORD': config('DATABASE_POSTGRES_PASSWORD'),
-        'HOST': config('DATABASE_HOST'),
+        'HOST': config('DATABASE_POSTGRES_HOST'),
         'PORT': config('DATABASE_POSTGRES_PORT'),
     }
 }
@@ -134,7 +134,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 

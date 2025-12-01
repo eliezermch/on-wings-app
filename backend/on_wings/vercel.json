@@ -11,12 +11,12 @@
     ],
     "routes": [
         {
-            "src": "/(.*)",
-            "dest": "on_wings/wsgi.py"
+            "src": "/static/(.*)",
+            "dest": "/staticfiles/$1"
         },
         {
-            "src": "/static/(.*)",
-            "dest": "/static/$1"
+            "src": "/(.*)",
+            "dest": "on_wings/wsgi.py"
         }
     ]
 }
