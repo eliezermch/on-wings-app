@@ -25,7 +25,7 @@ export default async function MePage() {
   // If no user, show login prompt (or could redirect)
   if (!user) {
     return (
-      <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-8">
+      <div className="min-h-screen mt-16 bg-gray-50 flex flex-col items-center justify-center p-8">
         <main className="max-w-md w-full text-center space-y-8">
           <h1 className="text-4xl font-bold text-gray-900">
             Welcome to On Wings
@@ -55,7 +55,7 @@ export default async function MePage() {
   const totalScore = (oldTestamentProgress?.total_score || 0) + (newTestamentProgress?.total_score || 0);
 
   return (
-    <div className="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen mt-16 bg-background py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto space-y-8">
         
         {/* Profile Header */}

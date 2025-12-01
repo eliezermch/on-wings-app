@@ -16,7 +16,7 @@ export default async function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-background flex flex-col items-center p-8">
+    <main className="min-h-screen bg-background mt-16 flex flex-col items-center p-8">
       <h1 className="text-3xl md:text-4xl font-bold mb-8">Buen día, {user?.first_name} Aquí está tu versículo del día</h1>
       <div className="flex flex-col max-w-4xl w-full space-y-8">
         {user ? (

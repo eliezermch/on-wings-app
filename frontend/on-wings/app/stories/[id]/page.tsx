@@ -67,7 +67,7 @@ export default function StoryPage({
   }
 
   return (
-    <div className="container mx-auto px-8 py-6 md:py-10 mt-0 md:mt-6 max-w-4xl">
+    <div className="container mx-auto px-8 py-6 md:py-10 mt-16 md:mt-6 max-w-4xl">
       <div className="mb-4 md:mb-8">
         <h1 className="text-3xl md:text-4xl font-bold text-primary mb-1 md:mb-2">{story.title}</h1>
         <p className="text-muted-foreground text-md">{story.reference}</p>

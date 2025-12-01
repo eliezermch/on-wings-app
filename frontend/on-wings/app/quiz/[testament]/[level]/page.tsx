@@ -175,7 +175,7 @@ export default function QuizLevelPage({
   const progress = ((currentQuestionIndex) / questions.length) * 100
 
   return (
-    <div className="container mx-auto px-4 py-8 mt-20 max-w-2xl">
+    <div className="container mx-auto px-4 py-8 md:mt-20 mt-16 max-w-2xl">
       <div className="flex justify-between items-center mb-4">
         <span className="font-bold text-muted-foreground">Level {level}</span>
         <div className="flex gap-1">
@@ -192,13 +192,13 @@ export default function QuizLevelPage({
         <Progress value={progress} className="h-4" />
       </div>
 
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold mb-6">{currentQuestion.text}</h2>
+      <div className="md:mb-8 mb-6">
+        <h2 className="text-2xl leading-[1.2] font-bold mb-6">{currentQuestion.text}</h2>
         
         <div className="grid grid-cols-1 gap-4">
           {currentQuestion.choices.map((choice) => {
             let variant = "outline"
-            let className = "justify-start text-lg p-6 h-auto hover:bg-accent hover:text-accent-foreground"
+            let className = "justify-start text-lg md:p-6 p-4 h-auto hover:bg-accent hover:text-accent-foreground"
             
             if (isChecked) {
               if (choice.is_correct && isCorrect) {

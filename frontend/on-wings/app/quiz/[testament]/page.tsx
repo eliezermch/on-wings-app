@@ -46,7 +46,7 @@ export default function LevelSelectionPage({
   const levels = Array.from({ length: 50 }, (_, i) => i + 1)
 
   return (
-    <div className="container mx-auto px-4 py-8 lg:mt-20 mt-0 max-w-4xl">
+    <div className="container mx-auto px-4 py-8 lg:mt-20 mt-16 max-w-4xl">
       <div className="flex justify-between items-center mb-8">
         <h1 className="md:text-4xl text-3xl font-bold text-primary">
           {testament === 'OLD' 

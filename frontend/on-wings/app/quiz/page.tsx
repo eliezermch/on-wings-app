@@ -11,7 +11,7 @@ export default function QuizSelectionPage() {
   const [language, setLanguage] = useState<'EN' | 'ES'>('EN')
 
   return (
-    <div className="container mx-auto py-8 mb-4 max-w-4xl">
+    <div className="container mt-16 mx-auto py-8 mb-4 max-w-4xl">
       <div className="flex justify-end mb-6 pr-8">
         <div className="flex gap-2 bg-muted p-1 rounded-lg">
           <Button 
