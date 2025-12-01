@@ -31,8 +31,8 @@ export default function LikedStoriesPage() {
   }
 
   return (
-    <div className="container max-w-4xl mx-auto px-0 py-8">
-      <h1 className="text-3xl font-bold mb-8 text-center">My Liked Stories</h1>
+    <div className="container min-h-screen max-w-4xl mx-auto px-0 py-8">
+      <h1 className="text-3xl font-bold mb-8 text-start pl-8 md:pl-0 md:text-center">My Liked Stories</h1>
       
       {stories.length === 0 ? (
         <div className="text-center text-muted-foreground">

@@ -17,7 +17,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-background flex flex-col items-center p-8">
-      <h1 className="text-4xl font-bold mb-8">Buen día, {user?.first_name} Aquí está tu versículo del día</h1>
+      <h1 className="text-3xl md:text-4xl font-bold mb-8">Buen día, {user?.first_name} Aquí está tu versículo del día</h1>
       <div className="flex flex-col max-w-4xl w-full space-y-8">
         {user ? (
           <DailyVerseCard />
@@ -40,8 +40,8 @@ export default async function Home() {
 
       <div className="max-w-4xl w-full space-y-8">
         <div className="flex justify-between items-center max-w-4xl w-full mb-4">
-          <h2 className="text-xl font-bold text-foreground">Stories</h2>
-          <button className="text-sm font-bold hover:underline" style={{ color: "#D4AF37" }}>View All</button>
+          <h2 className="text-xl md:text-2xl font-bold text-foreground">Stories</h2>
+          <button className="text-sm md:text-base font-bold hover:underline" style={{ color: "#D4AF37" }}>View All</button>
         </div>
         <div className="flex flex-col max-w-4xl w-full space-y-8">
           {stories.map((story: Story) => (

@@ -21,7 +21,7 @@ const styles = {
   fieldGroup: 'space-y-2',
   footer: 'flex flex-col',
   button: 'w-full',
-  prompt: 'mt-4 text-center text-md',
+  prompt: 'mt-3 text-center text-md',
   link: 'ml-2 text-primary',
 };
 
@@ -46,7 +46,7 @@ export function RegisterForm() {
         <Card>
           <CardHeader className={styles.header}>
             <CardTitle className={styles.title}>Registrarse <Image src="/on-wings-high-quality_trimmed.png" alt="On Wings Logo" className="w-[48px] h-[48px] object-contain mb-[-32px]" width={48} height={48} /></CardTitle>
-            <CardDescription className='text-md'>Ingresa tus datos para crear una nueva cuenta</CardDescription>
+            <CardDescription className='text-md leading-[1]'>Ingresa tus datos para crear una nueva cuenta</CardDescription>
           </CardHeader>
           <CardContent className={styles.content}>
             <div className={styles.fieldGroup}>

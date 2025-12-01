@@ -57,32 +57,31 @@ export const DailyVerseCard = () => {
 
   return (
     <div 
-      className="w-full p-6 rounded-3xl shadow-lg mb-6 relative overflow-hidden"
+      className="w-full p-4 md:p-6 rounded-3xl shadow-lg mb-6 relative overflow-hidden"
       style={{ 
         background: `linear-gradient(135deg, #0284C7 0%, #BAE6FD 100%)`,
       }}
     >
       {/* Decorative Elements */}
-      <div className="absolute top-0 right-0 opacity-20 transform translate-x-4 -translate-y-4">
-        {/* <Feather size={120} color={COLORS.navy} /> */}
-        <Image src="/on-wings-logo-bg-transparent.png" alt="On Wings Logo" className="w-[320px] h-[320px] object-contain mb-0" width={320} height={320} />
+      <div className="absolute bottom-0 lg:top-0 right-0 opacity-20 transform translate-x-4 -translate-y-4">
+        <Image src="/on-wings-logo-bg-transparent.png" alt="On Wings Logo" className="w-[180px] h-[180px] md:w-[320px] md:h-[320px] object-contain mb-0" width={320} height={320} />
       </div>
 
       <div className="relative z-10">
-        <div className="flex justify-between items-start mb-3">
+        <div className="flex justify-between items-center md:items-start mb-3">
           <span className="inline-block text-primary-foreground px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/30 backdrop-blur-sm">
             {language === 'en' ? 'Verse of the Day' : 'Versículo del Día'}
           </span>
           <div className="bg-white/20 backdrop-blur-sm rounded-full p-1 flex">
             <button 
               onClick={() => setLanguage('en')}
-              className={`px-3 py-1 rounded-full text-xs font-bold transition-colors ${language === 'en' ? 'bg-white text-[#0284C7]' : 'text-primary-foreground hover:bg-white/10'}`}
+              className={`px-2 py-1 rounded-full text-xs font-bold transition-colors ${language === 'en' ? 'bg-white text-[#0284C7]' : 'text-primary-foreground hover:bg-white/10'}`}
             >
               EN
             </button>
             <button 
               onClick={() => setLanguage('es')}
-              className={`px-3 py-1 rounded-full text-xs font-bold transition-colors ${language === 'es' ? 'bg-white text-[#0284C7]' : 'text-primary-foreground hover:bg-white/10'}`}
+              className={`px-2 py-1 rounded-full text-xs font-bold transition-colors ${language === 'es' ? 'bg-white text-[#0284C7]' : 'text-primary-foreground hover:bg-white/10'}`}
             >
               ES
             </button>
@@ -94,8 +93,8 @@ export const DailyVerseCard = () => {
         </p>
         <div className="flex justify-between items-end">
           <div>
-            <p className="font-bold text-lg text-primary-foreground">{reference}</p>
-            <p className="text-md opacity-75 text-primary-foreground">{version}</p>
+            <p className="font-bold text-md md:text-lg text-primary-foreground">{reference}</p>
+            <p className="text-xs md:text-md opacity-75 text-primary-foreground">{version}</p>
           </div>
           <button 
             className="p-2 rounded-full bg-white/40 hover:bg-white/60 transition-colors"

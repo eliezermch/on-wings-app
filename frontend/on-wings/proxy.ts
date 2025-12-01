@@ -2,7 +2,7 @@ import { cookies } from 'next/headers';
 import { type NextRequest, NextResponse } from 'next/server';
 import api from './api/api';
 
-const protectedRoutes = ['/dashboard', '/me', '/dashboard/:path*'];
+const protectedRoutes = ['/', '/me', '/:path*', '/stories/liked', '/quiz'];
 
 function checkIsProtectedRoute(pathname: string) {
   return protectedRoutes.includes(pathname);
@@ -37,5 +37,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)', '/me', '/dashboard', '/dashboard/:path*'],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)', '/me', '/:path*', '/stories/liked', '/quiz'],
 };

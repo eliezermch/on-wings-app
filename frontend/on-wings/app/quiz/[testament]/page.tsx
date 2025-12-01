@@ -46,16 +46,16 @@ export default function LevelSelectionPage({
   const levels = Array.from({ length: 50 }, (_, i) => i + 1)
 
   return (
-    <div className="container mx-auto px-4 py-8 mt-20 max-w-4xl">
+    <div className="container mx-auto px-4 py-8 lg:mt-20 mt-0 max-w-4xl">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-primary">
+        <h1 className="md:text-4xl text-3xl font-bold text-primary">
           {testament === 'OLD' 
             ? (language === 'EN' ? 'Old Testament' : 'Antiguo Testamento')
             : (language === 'EN' ? 'New Testament' : 'Nuevo Testamento')
           }
         </h1>
         <div className="flex items-center gap-2 bg-accent/20 px-4 py-2 rounded-full">
-          <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+          <Star className="md:w-5 md:h-5 w-4 h-4 text-yellow-500 fill-yellow-500" />
           <span className="font-bold text-lg">{progress?.total_score || 0}</span>
         </div>
       </div>
@@ -82,11 +82,11 @@ export default function LevelSelectionPage({
                   <Lock className="w-8 h-8 text-muted-foreground" />
                 ) : isCompleted ? (
                   <div className="relative">
-                    <span className="text-2xl font-bold text-primary">{level}</span>
+                    <span className="text-3xl md:text-4xl font-bold text-primary">{level}</span>
                     <CheckCircle className="w-4 h-4 text-green-500 absolute -top-2 -right-4" />
                   </div>
                 ) : (
-                  <span className={`text-2xl font-bold ${isCurrent ? 'text-primary' : ''}`}>
+                  <span className={`text-3xl md:text-4xl font-bold ${isCurrent ? 'text-primary' : ''}`}>
                     {level}
                   </span>
                 )}

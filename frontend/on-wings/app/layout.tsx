@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 import { ThemeProvider } from "@/components/theme-provider";
 import { NavBar } from "@/components/nav-bar";
 import { Toaster } from "@/components/ui/sonner";
+import BottomNavBar from "@/components/bottom-nav-bar";
 
 export default function RootLayout({
   children,
@@ -33,6 +34,7 @@ export default function RootLayout({
         >
           <NavBar />
           {children}
+          <BottomNavBar />
           <Toaster />
         </ThemeProvider>
       </body>

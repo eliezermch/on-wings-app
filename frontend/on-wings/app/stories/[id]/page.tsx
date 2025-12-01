@@ -20,7 +20,6 @@ export default function StoryPage({
     const fetchStory = async () => {
       try {
         const data = await actions.stories.getStory(id)
-        console.log(data)
         setStory(data)
       } catch (error) {
         console.error('Failed to fetch story:', error)
@@ -68,14 +67,14 @@ export default function StoryPage({
   }
 
   return (
-    <div className="container mx-auto px-0 py-10 mt-6 max-w-4xl">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold text-primary mb-2">{story.title}</h1>
+    <div className="container mx-auto px-8 py-6 md:py-10 mt-0 md:mt-6 max-w-4xl">
+      <div className="mb-4 md:mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-primary mb-1 md:mb-2">{story.title}</h1>
         <p className="text-muted-foreground text-md">{story.reference}</p>
       </div>
 
-      <div className="flex items-center justify-between mb-8 p-4 bg-card rounded-lg shadow-sm border">
-        <div className="flex items-center gap-1">
+      <div className="flex items-center justify-between mb-8 p-2 md:p-4 bg-card rounded-lg shadow-sm border">
+        <div className="flex items-center gap-0.5 md:gap-1">
           <Button
             variant="ghost"
             size="icon"
@@ -84,7 +83,7 @@ export default function StoryPage({
           >
             <Heart className={`h-6 w-6 ${story.is_liked ? 'fill-current' : ''}`} />
           </Button>
-          <span className="text-md font-medium">
+          <span className="text-sm md:text-md font-medium">
             {story.is_liked ? 'Liked' : 'Like'}
           </span>
         </div>
@@ -100,11 +99,11 @@ export default function StoryPage({
                   : 'text-gray-300 hover:text-yellow-200'
               }`}
             >
-              <Star className={`h-6 w-6 ${(story.user_rating || 0) >= star ? 'fill-current' : ''}`} />
+              <Star className={`md:h-6 md:w-6 h-5 w-5 ${(story.user_rating || 0) >= star ? 'fill-current' : ''}`} />
             </button>
           ))}
-          <span className="text-lg text-primary text-center ml-6 font-semibold">
-            <Star className="h-6 w-6" />
+          <span className="text-lg text-primary text-center ml-4 md:ml-6 font-semibold">
+            <Star className="md:h-6 md:w-6 h-5 w-5" />
             {story.average_rating || 0}
           </span>
         </div>
