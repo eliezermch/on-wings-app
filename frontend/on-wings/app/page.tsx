@@ -11,6 +11,7 @@ export default async function Home() {
   let stories: Story[] = [];
   try {
     stories = await actions.stories.getStories();
+    console.log(stories)
   } catch (error) {
     console.error('Failed to fetch stories:', error);
   }

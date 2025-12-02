@@ -9,6 +9,7 @@ export interface Story {
   average_rating: number;
   category: string;
   read_time: string;
+  image_url: string;
 }
 
 export interface Rating {
