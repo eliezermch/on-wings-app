@@ -14,7 +14,7 @@ class StorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Story
-        fields = ['id', 'title', 'content', 'reference', 'created_at', 'is_liked', 'user_rating', 'average_rating']
+        fields = ['id', 'title', 'content', 'reference', 'image_url', 'created_at', 'is_liked', 'user_rating', 'average_rating']
 
     def get_is_liked(self, obj):
         user = self.context['request'].user

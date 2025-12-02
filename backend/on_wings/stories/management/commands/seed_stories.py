@@ -2,62 +2,61 @@ from django.core.management.base import BaseCommand
 from stories.models import Story
 
 class Command(BaseCommand):
-    help = 'Seeds the database with the David and Goliath story'
+    help = 'Seeds the database with the story'
 
     def handle(self, *args, **kwargs):
-        title = "David y Goliat: El Pastor y el Gigante"
-        reference = "1 Samuel 17"
-        content = """El Valle de Ela
+        title = "El Hijo Pródigo: Perdón y Restauración"
+        reference = "Lucas 15:11-32"
+        content = """La Petición
 
-Los ejércitos de Israel y los filisteos se encontraban frente a frente en colinas opuestas, con el Valle de Ela extendiéndose entre ellos. Se había apoderado del lugar un tenso punto muerto, pero eran los filisteos quienes tenían la ventaja, no en número, sino en un único campeón.
+Un hombre tenía dos hijos. El menor de ellos, cansado de la vida en casa y deseoso de independencia, se acercó a su padre con una demanda audaz e irrespetuosa: "Padre, dame la parte de los bienes que me corresponde".
 
-Cada mañana y cada tarde durante cuarenta días, un gigante llamado Goliat de Gat salía de las filas filisteas. Medía casi tres metros de altura, llevaba un casco de bronce y una cota de malla que pesaba cincuenta y cinco kilos. El asta de su lanza era como el rodillo de un telar, y su punta de hierro pesaba casi siete kilos.
+Aunque esto equivalía a desear la muerte de su padre para recibir la herencia, el padre no discutió. Con gran tristeza pero respetando la libertad de su hijo, repartió sus bienes entre ambos.
 
-Goliat gritaba a las filas de Israel: "¿Por qué salen a prepararse para la batalla? ¿No soy yo un filisteo y ustedes los siervos de Saúl? Escojan a un hombre y que baje a pelear conmigo. Si él puede pelear y matarme, seremos sus esclavos; pero si yo lo venzo y lo mato, ustedes serán nuestros esclavos y nos servirán".
+El Derroche en Tierra Lejana
 
-Al escuchar las palabras del gigante, el rey Saúl y todos los israelitas se consternaron y tuvieron mucho miedo. Nadie se atrevía a dar un paso al frente.
+Pocos días después, el hijo menor juntó todo lo que tenía y partió hacia una provincia lejana. Allí, lejos de la mirada y la guía de su padre, se entregó a una vida de desenfreno. Vivió perdidamente, malgastando su fortuna en fiestas, excesos y malas compañías, hasta que no le quedó ni una sola moneda.
 
-El Joven Pastor
+La Gran Necesidad
 
-Mientras tanto, en Belén, un joven pastor llamado David cuidaba las ovejas de su padre Isaí. Isaí le pidió a David que llevara grano tostado y panes a sus tres hermanos mayores, que eran soldados en el ejército de Saúl, para ver cómo estaban.
+Justo cuando había gastado todo, vino una gran hambruna en aquella provincia. El joven, que antes vestía lino fino, ahora comenzó a pasar necesidad extrema. Sin amigos ni recursos, se vio obligado a buscar trabajo con uno de los ciudadanos de aquella tierra.
 
-David llegó al campamento justo cuando el ejército salía a sus posiciones de batalla, gritando el grito de guerra. Corrió hacia las filas de combate y saludó a sus hermanos. Mientras hablaba con ellos, Goliat se adelantó y gritó su desafío habitual. Cuando los israelitas vieron al hombre, todos huyeron de él con gran temor.
+El hombre lo envió a sus campos a hacer el trabajo más humillante para un judío: apacentar cerdos. El hambre era tan atroz que el joven deseaba llenar su estómago con las algarrobas que comían los cerdos, pero nadie le daba nada.
 
-David preguntó a los hombres que estaban cerca de él: "¿Qué se hará por el hombre que mate a este filisteo y quite esta deshonra de Israel? ¿Quién es este filisteo incircunciso para que desafíe a los escuadrones del Dios viviente?"
+Volviendo en Sí
 
-David ante el Rey
+En medio de la suciedad y el hambre, el joven finalmente reflexionó. Se dijo a sí mismo: "¡Cuántos jornaleros en casa de mi padre tienen abundancia de pan, y yo aquí perezco de hambre!".
 
-Las preguntas de David llegaron a oídos del rey Saúl, quien lo mandó llamar. David le dijo a Saúl: "Que nadie se desanime a causa de este filisteo; tu siervo irá y peleará contra él".
+Tomó una decisión: "Me levantaré e iré a mi padre, y le diré: Padre, he pecado contra el cielo y contra ti. Ya no soy digno de ser llamado tu hijo; hazme como a uno de tus jornaleros". No esperaba ser restaurado como hijo, solo aspiraba a sobrevivir como un siervo más.
 
-Saúl respondió: "Tú no puedes ir contra este filisteo a pelear con él; eres solo un muchacho, y él ha sido un guerrero desde su juventud".
+El Regreso y el Abrazo
 
-Pero David insistió. Le contó a Saúl cómo había protegido las ovejas de su padre de leones y osos, derribándolos cuando atacaban al rebaño. "El Señor, que me libró de las garras del león y de las garras del oso, me librará de la mano de este filisteo".
+Se levantó y emprendió el largo camino de regreso. Pero cuando aún estaba lejos, su padre lo vio. El padre, que probablemente había estado esperando y mirando el horizonte día tras día, fue movido a misericordia.
 
-Finalmente, Saúl le dijo a David: "Ve, y que el Señor esté contigo".
+Rompiendo todo protocolo y dignidad de un anciano de su época, el padre corrió hacia su hijo. Se echó sobre su cuello y lo besó repetidamente, sin importarle la suciedad ni el olor a cerdos que traía el muchacho.
 
-Saúl intentó vestir a David con su propia túnica y armadura, poniéndole un casco de bronce en la cabeza. David se ciñó la espada sobre la túnica e intentó caminar, pero no estaba acostumbrado. "No puedo andar con esto", le dijo a Saúl, "porque no estoy acostumbrado". Así que se lo quitó.
+El hijo comenzó su discurso ensayado: "Padre, he pecado contra el cielo y contra ti, y ya no soy digno de ser llamado tu hijo...".
 
-La Batalla
+La Celebración
 
-En lugar de armadura, David tomó su bastón en la mano. Bajó a un arroyo y escogió cinco piedras lisas, poniéndolas en su bolsa de pastor. Con su honda en la mano, se acercó al filisteo.
+Pero el padre no lo dejó terminar la parte de "hazme como a uno de tus jornaleros". En su lugar, ordenó a sus siervos: "¡Sacad pronto el mejor vestido, y vestidle! Poned un anillo en su mano y calzado en sus pies. Traed el becerro gordo y matadlo, y comamos y hagamos fiesta. Porque este mi hijo muerto era, y ha revivido; se había perdido, y es hallado". Y comenzaron a regocijarse.
 
-Goliat miró a David y vio que era poco más que un muchacho, rubio y de buen parecer, y lo despreció. Le dijo a David: "¿Soy yo un perro para que vengas a mí con palos?". Y el filisteo maldijo a David por sus dioses. "¡Ven aquí", dijo, "y daré tu carne a las aves del cielo y a las bestias del campo!".
+La Ira del Hermano Mayor
 
-David le dijo al filisteo: "Tú vienes contra mí con espada, lanza y jabalina, pero yo vengo contra ti en el nombre del Señor de los Ejércitos, el Dios de los escuadrones de Israel, a quien tú has desafiado. Hoy el Señor te entregará en mis manos... y toda la tierra sabrá que hay Dios en Israel. Y toda esta congregación sabrá que no es con espada ni con lanza que el Señor salva; porque la batalla es del Señor, y él los entregará a ustedes en nuestras manos".
+El hijo mayor estaba en el campo. Al regresar y acercarse a la casa, oyó la música y las danzas. Llamó a uno de los criados y le preguntó qué pasaba. El criado le respondió: "Tu hermano ha venido, y tu padre ha hecho matar el becerro gordo por haberle recibido bueno y sano".
 
-La Victoria
+El hermano mayor se enojó profundamente y no quería entrar. Su padre salió a rogarle que entrara, pero él le reprochó: "He aquí, tantos años te sirvo, no habiéndote desobedecido jamás, y nunca me has dado ni un cabrito para gozarme con mis amigos. Pero cuando vino este tu hijo, que ha consumido tus bienes con rameras, has hecho matar para él el becerro gordo".
 
-Cuando el filisteo se movió para atacar, David corrió rápidamente hacia la línea de batalla para enfrentarlo. Metiendo la mano en su bolsa y sacando una piedra, la lanzó con la honda y golpeó al filisteo en la frente. La piedra se hundió en su frente, y él cayó boca abajo en tierra.
+La Respuesta del Padre
 
-Así venció David al filisteo con una honda y una piedra; sin espada en su mano, hirió al filisteo y lo mató.
-
-Al ver los filisteos que su héroe había muerto, dieron media vuelta y huyeron. Los hombres de Israel y de Judá se levantaron con un grito y persiguieron a los filisteos, asegurando una gran victoria ese día."""
+El padre le respondió con ternura y firmeza: "Hijo, tú siempre estás conmigo, y todas mis cosas son tuyas. Mas era necesario hacer fiesta y regocijarnos, porque este tu hermano era muerto, y ha revivido; se había perdido, y es hallado"."""
 
         story, created = Story.objects.get_or_create(
             title=title,
             defaults={
                 'content': content,
-                'reference': reference
+                'reference': reference,
+                'image_url': 'https://qmeziwmbzcecnoovebps.supabase.co/storage/v1/object/public/on-wings-media/hijo-prodigo.png'
             }
         )
 

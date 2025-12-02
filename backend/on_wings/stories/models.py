@@ -5,6 +5,7 @@ class Story(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     reference = models.CharField(max_length=100)
+    image_url = models.URLField(max_length=500, blank=True, null=True)
     likes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='liked_stories', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
