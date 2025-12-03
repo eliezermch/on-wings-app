@@ -20,7 +20,7 @@ const INITIAL_STATE: FormState = {
 };
 
 export default function SignIn() {
-  const [formState, formAction] = useActionState(actions.auth.loginUserAction, INITIAL_STATE);
+  const [formState, formAction, isPending] = useActionState(actions.auth.loginUserAction, INITIAL_STATE);
 
   return (
     <div className="flex items-center justify-center bg-card rounded-xl shadow-lg py-12 px-4 sm:px-6 lg:px-8">
@@ -70,8 +70,8 @@ export default function SignIn() {
             </div>
           )}
 
-          <Button type="submit" className="w-full text-background">
-            Iniciar Sesión
+          <Button type="submit" className="w-full text-background" disabled={isPending}>
+            {isPending ? 'Cargando...' : 'Iniciar Sesión'}
           </Button>
         </form>
       </div>

@@ -38,7 +38,7 @@ const INITIAL_STATE: FormState = {
 };
 
 export function RegisterForm() {
-  const [formState, formAction] = useActionState(actions.auth.registerUserAction, INITIAL_STATE);
+  const [formState, formAction, isPending] = useActionState(actions.auth.registerUserAction, INITIAL_STATE);
 
   return (
     <div className={styles.container}>
@@ -106,7 +106,9 @@ export function RegisterForm() {
             </div>
           </CardContent>
           <CardFooter className={styles.footer}>
-            <Button className={styles.button}>Registrarse</Button>
+            <Button className={styles.button} disabled={isPending}>
+              {isPending ? 'Cargando...' : 'Registrarse'}
+            </Button>
             {formState.apiErrors && (
               <p className="text-pink-500 text-xs italic mt-1 py-2">{formState.apiErrors.message}</p>
             )}
