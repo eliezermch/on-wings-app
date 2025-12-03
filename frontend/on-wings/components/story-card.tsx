@@ -22,7 +22,7 @@ export const StoryCard = ({ story }: { story: Story }) => {
             alt={story.title}
             width={64}
             height={64}
-            className="hidden md:hidden w-full h-full object-cover"
+            className="block md:hidden w-full h-full object-cover"
             />
             <Image
             src={story.image_url}
